@@ -33,7 +33,7 @@ export default function Home() {
   };
 
   return (
-    <div style={{ backgroundColor: '#000', minHeight: '100vh', position: 'relative' }}>
+    <div style={{ backgroundColor: '#000', minHeight: '100vh', position: 'relative', width: '100%', height: '100%', margin: 0, padding: 0, overflowX: 'hidden' }}>
       {/* Sidebar */}
       <div
         style={{
@@ -205,11 +205,6 @@ export default function Home() {
             borderRadius: '50%',
             transition: 'background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease',
             zIndex: 1100,
-            '&:hover': {
-              backgroundColor: '#6D5FFD',
-              color: '#fff',
-              borderColor: '#fff',
-            },
           }}
         >
           <IconMenu2 size={24} />
@@ -264,49 +259,21 @@ export default function Home() {
 
         {/* Toggle How it Works Section */}
         <h3>
-        <Text
-          onClick={toggleInfo}
-          style={{ cursor: 'pointer', color: '#4FD1C5', marginTop: '40px', fontSize: '1.2rem' }}
-        >
-          How it Works
-        </Text>
+          <Text
+            onClick={toggleInfo}
+            style={{ cursor: 'pointer', color: '#4FD1C5', marginTop: '40px', fontSize: '1.2rem' }}
+          >
+            {showInfo ? 'Hide how to cut audio' : 'How to cut audio?'}
+          </Text>
         </h3>
-
         {showInfo && (
-          <div style={{ marginTop: '40px', textAlign: 'left', opacity: showInfo ? 1 : 0, transition: 'opacity 0.5s ease-in-out' }}>
-            <h3><Text size="lg" style={{ color: '#aaa', marginBottom: '20px' }}>
-              This app can be used to trim and/or cut audio tracks, remove audio fragments. Fade in
-              and fade out your music easily to make the audio harmoniously.
-            </Text>
-            </h3>
-            <h3>
-            <Text size="lg" style={{ color: '#aaa', marginBottom: '20px' }}>
-              It's fast and easy to use. You can save the audio file in any format (codec parameters
-              are configured).
-            </Text>
-            </h3>
-            <h3>
-            <Text size="lg" style={{ color: '#aaa', marginBottom: '20px' }}>
-              It works directly in the browser, no need to install any software, and is available
-              for mobile devices.
-            </Text>
-            </h3>
-
-            {/* Privacy and Security Section */}
-            <Group spacing="xs" style={{ marginTop: '30px' }}>
-              <IconLock size={24} style={{ color: '#4FD1C5' }} />
-              <h3>
-              <Text size="lg" weight={500} style={{ color: '#fff' }}>
-                Privacy and Security Guaranteed
-              </Text>
-              </h3>
-            </Group>
-            <h3><Text size="lg" style={{ color: '#aaa' }}>
-              This is a serverless app. Your files do not leave your device.
-            </Text>
-            </h3>
-            
-          </div>
+          <Text
+            size="sm"
+            style={{ marginTop: '10px', color: '#aaa' }}
+          >
+            Upload your audio file and use the slider to select the section you want to keep.
+            Your files are processed securely and are never stored.
+          </Text>
         )}
       </Container>
     </div>
